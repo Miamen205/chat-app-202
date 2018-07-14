@@ -1,0 +1,111 @@
+.rbc-header {
+    color: black;
+    background: lightgrey;
+    border-color: black;
+}
+.rbc-header-gutter{
+    background-color: lightgrey;
+}
+.rbc-allday-cell .rbc-row-big .rbc-day-bg{
+    border-color: black;
+}
+
+.rbc-event {
+    background: rgb(48, 48, 48);
+}
+
+.rbc-month-view{
+    background-color: rgb(228, 228, 228);
+}
+
+.rbc-event.rbc-selected {
+    background-color: #000000;
+}
+
+.rbc-allday-cell {
+    background: lightgrey;
+}
+
+.rbc-time-view {
+    border-color: black;
+    background-color: lightgrey;
+}
+
+
+.rbc-toolbar button.rbc-active {
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    background-color: black;
+    border-color: black;
+    border-radius: 20px;
+  }
+
+.rbc-toolbar button.rbc-active:focus {
+    color: #373a3c;
+    background-color: #d4d4d4;
+    border-color: black;
+    border-radius: 10px;
+  }
+  .rbc-toolbar button:focus {
+    color: #373a3c;
+    background-color: #e6e6e6;
+    border-color: black;
+    border-radius: 20px;
+  }
+  .rbc-toolbar button:hover {
+    color: #373a3c;
+    background-color: #e6e6e6;
+    border-color: black;
+    border-radius: 20px;
+}
+
+.rbc-day-bg + .rbc-day-bg {
+    border-color: black;
+}
+
+.rbc-rtl .rbc-day-bg + .rbc-day-bg {
+    border-color: black;
+}
+
+.rbc-btn-group{
+    border-color: black;
+    background-color: black;
+    border-radius: 20px;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+  background-image: none;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  background-color: darkgrey;
+  border-color: black;
+  /* border-radius: 20px; */
+}
+.rbc-time-header.rbc-overflowing {
+    border-color: black;
+    /* border-radius: 20px; */
+}
+.rbc-rtl .rbc-time-header.rbc-overflowing {
+    border-color: black;
+    /* border-radius: 20px; */
+}
+.rbc-time-header > .rbc-row > * + * {
+    border-color: black;
+    
+}
+.rbc-rtl .rbc-time-header > .rbc-row > * + * {
+    border-color: black;
+    /* border-radius: 20px; */
+    
+}
+.rbc-time-header > .rbc-row:first-child {
+    border-color: black;
+    /* border-radius: 20px; */
+    
+}
+.rbc-today {
+    background-color: darkgrey;
+}
+.rbc-label .rbc-header-gutter{
+    background-color: lightgrey;
+}

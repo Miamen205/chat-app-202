@@ -1,0 +1,114 @@
+import Chatpage from './component/Chat';
+import { logout } from './component/Auth';
+import GoalsUpdate from "./component/GoalsUpdate";
+import SetProfile from "./component/SetProfile";
+import Navigation from"./component/Navbar";
+import { firebaseAuth } from './component/firebase';
+import WorkoutApi from './component/workoutApi'
+import Dashboard from "./component/DashboardContainer";
+// import QandA from "./component/QandA";
+
+function PrivateRoute ({component: Component, authed, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => authed === true
+        ? <Component {...props} />
+        : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+    />
+  )
+}
+
+function PublicRoute ({component: Component, authed, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => authed === false
+        ? <Component {...props} />
+        : <Redirect to='/profile' />
+      }
+    />
+  )
+}
+class App extends Component {
+  state = {
+    authed: false,
+    loading: true,
+  }
+  componentDidMount () {
+    this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authed: true,
+          loading: false,
+        })
+      } else {
+        this.setState({
+          authed: false,
+          loading: false
+        })
+      }
+    })
+  }
+  componentWillUnmount () {
+    this.removeListener()
+  }
+  render() {
+    return this.state.loading === true ? <h1>Loading</h1> : (
+      <BrowserRouter>
+        <div>
+          <nav className="Navbar navbar-default navbar-static-top">
+            <div className="container">
+              <div className="Navbar-header">
+                <Link to="/" className="navbar-brand">E.M Bible Chat</Link>
+              </div>
+              <ul className="nav navbar-nav pull-right">
+                <li>
+                  {/* <Link to="/" className="navbar-brand">Home</Link> */}
+                </li>
+                <li>
+                  {/* <Link to="/profile" className="navbar-brand">Profile</Link>
+                  <Link to="/chat" className="navbar-brand">Chat Box</Link>
+                  <Link to="/contact" className="navbar-brand">Contact Us</Link> */}
+                  <Navigation>{Navigation}</Navigation>
+                </li>
+                <li>
+                  {this.state.authed
+                    ? <button id="logout"
+                        onClick={() => {
+                          logout()
+                        }}
+                        className="navbar-brand">Logout</button>
+                    : <span>
+                        <Link to="/login" className="navbar-brand">Login</Link>
+                        <Link to="/register" className="navbar-brand">Register</Link>
+                      </span>}
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div className="container">
+            <div className="row">
+              <Switch>
+                <Route path='/' exact component={Homepage} />
+                <PublicRoute authed={this.state.authed} path='/login' component={Login} />
+                <PublicRoute authed={this.state.authed} path='/register' component={Register} />
+                <PrivateRoute authed={this.state.authed} path="/Dashboard" component={Dashboard} />
+                <PrivateRoute authed={this.state.authed} path='/chat' component={Chatpage} />
+                {/* <PrivateRoute authed={this.state.authed} path="/QandA" component={QandA} /> */}
+                <PrivateRoute authed={this.state.authed} path="/WorkoutApi" component={WorkoutApi} />
+                <PrivateRoute authed={this.state.authed} path="/GoalsUpdate" component={GoalsUpdate} />
+                <PrivateRoute authed={this.state.authed} path="/SetProfile" component={SetProfile} />
+                <Route  path='/contact' component={Contactpage} />
+                <Route  path='/about'  component={Aboutpage} />
+                <Route render={() => <h3>Welcome To Chat Box</h3>} />
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App;

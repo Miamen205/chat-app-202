@@ -1,0 +1,123 @@
+.goalUpdate {
+  background: #a0a4b8;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.custom-radio__label {
+  cursor: pointer;
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  transition: color 300ms;
+  font-size: 20px;
+  color: black;
+}
+
+.custom-radio__label:before {
+  content: "";
+  display: inline-block;
+  background: transparent;
+  border: 8px solid #000;
+  box-shadow: 0 0 0 3px #fff;
+  border-radius: 50%;
+  margin-right: 16px;
+  transition: all 300ms;
+}
+
+.custom-radio__wrapper {
+  display: inline;
+}
+
+.custom-radio__input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.custom-radio__input:checked + .custom-radio__label {
+  color: #0062cc;
+}
+
+.custom-radio__input:checked + .custom-radio__label:before {
+  background: #0062cc;
+  box-shadow: 0 0 0 2px #0062cc;
+  animation: rcheck 300ms;
+}
+
+@keyframes rcheck {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(0.5);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.content {
+  display: inline-block;
+  word-wrap: wrap;
+}
+
+.checkBoxLabel {
+  text-align: justify;
+  padding-left: 0.5em;
+  padding-right: 1em;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  transition: color 300ms;
+  font-size: 1.6em;
+}
+
+.checkBoxLabel.hover {
+  color: blue;
+}
+
+.clear {
+  clear: both;
+}
+
+.checkBox {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 2px black;
+}
+
+.checkBox div {
+  width: 4em;
+  height: 4em;
+  background-color: #0062cc;
+  top: -52px;
+  left: -52px;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 100;
+}
+
+.checkBox input[type="checkbox"]:checked + div {
+  left: -10px;
+  top: -10px;
+}
+
+.checkBox input[type="checkbox"] {
+  position: absolute;
+  left: 50px;
+  visibility: hidden;
+}
+
+.checkboxtransition {
+  transition: 300ms ease;
+}
+
+.h2 {
+  text-align: center;
+}

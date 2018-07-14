@@ -1,0 +1,49 @@
+.WeekCalendar {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  outline: 1px solid gray;
+}
+
+
+/* workoutApi css ------------------------*/
+
+
+.workoutApi{
+  color: white
+}
+
+.workoutRender{
+  color: black; font-size: 1.5em; background-color: white
+}
+  
+.ryanIsGay{
+  background-color: black; opacity: .8 ;
+}
+
+/* QandA CSS----------------------------- */
+
+.QAfont{
+  color: yellow
+}
+
+.QAtitle{
+  color: white
+}
+
+.NQ{
+  color: white
+}
+
+.mm-popup__box{
+  width: 50em;
+  justify-content: center;
+}
+
+.mm-popup__box__body{
+  font-size: 2em;
+}
+
+.mm-popup.hover{
+  opacity: 10;
+}
